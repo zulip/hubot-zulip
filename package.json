@@ -1,0 +1,19 @@
+{
+  "name": "hubot-zulip",
+  "version": "0.1.0",
+  "description": "Hubot adapter for Zulip",
+  "main": "adapter.coffee",
+  "dependencies": {
+    "zulip": "~0.1.0"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["zulip", "hubot"],
+  "repository":"https://github.com/zulip/hubot-zulip",
+  "author": "Zulip, Inc.",
+  "license": "MIT"
+}
