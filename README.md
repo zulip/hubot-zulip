@@ -10,6 +10,10 @@ On your [Zulip settings page](https://zulip.com/#settings), create a bot account
 
 The bot account email address and API key are passed to Hubot via environment variables `HUBOT_ZULIP_BOT` and `HUBOT_ZULIP_API_KEY`.
 
+You can optionally set the `HUBOT_ZULIP_STREAMS` variable to a
+comma-separated list of streams on which to listen for commands. If it's not
+set, all streams will be recognized.
+
 To run Hubot locally, use:
 
 	HUBOT_ZULIP_BOT=hubot-bot@example.com HUBOT_ZULIP_API_KEY=your_key bin/hubot -a zulip
