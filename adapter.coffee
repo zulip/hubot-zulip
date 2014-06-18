@@ -37,6 +37,7 @@ class Zulip extends Adapter
 
     run: ->
         @connected = false
+        streams = process.env.HUBOT_ZULIP_STREAMS?.toLowerCase().split ','
 
         @zulip = new zulip.Client
             client_name: "Hubot"
@@ -60,14 +61,17 @@ class Zulip extends Adapter
 
         @zulip.on 'message', (msg) =>
             return if msg.sender_email is @zulip.email
+            return if streams? and msg.type is 'stream' and
+                msg.display_recipient.toLowerCase() not in streams
+
             room = room_for_message(msg)
             author = @robot.brain.userForId msg.sender_email,
                 name: msg.sender_full_name
                 email_address: msg.sender_email
                 room: room
 
-            content = msg.content.replace(@mention_regex, '@$1');
-            console.log(@mention_regex, content);
+            content = msg.content.replace(@mention_regex, '@$1')
+            console.log(@mention_regex, content)
             
             message = new TextMessage author, content, msg.id
             console.log "Received", message
