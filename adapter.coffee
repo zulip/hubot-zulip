@@ -47,7 +47,7 @@ class Zulip extends Adapter
 
         @zulip.registerEventQueue
             event_types: ['message']
-            all_public_streams: true
+            all_public_streams: process.env.HUBOT_ZULIP_ONLY_SUBSCRIBED_STREAMS?
 
         @zulip.on 'registered', (resp) =>
             if not @connected
@@ -61,8 +61,6 @@ class Zulip extends Adapter
 
         @zulip.on 'message', (msg) =>
             return if msg.sender_email is @zulip.email
-            return if streams? and msg.type is 'stream' and
-                msg.display_recipient.toLowerCase() not in streams
 
             room = room_for_message(msg)
             author = @robot.brain.userForId msg.sender_email,
