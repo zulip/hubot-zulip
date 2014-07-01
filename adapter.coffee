@@ -37,7 +37,6 @@ class Zulip extends Adapter
 
     run: ->
         @connected = false
-        streams = process.env.HUBOT_ZULIP_STREAMS?.toLowerCase().split ','
 
         @zulip = new zulip.Client
             client_name: "Hubot"
@@ -47,7 +46,7 @@ class Zulip extends Adapter
 
         @zulip.registerEventQueue
             event_types: ['message']
-            all_public_streams: process.env.HUBOT_ZULIP_ONLY_SUBSCRIBED_STREAMS?
+            all_public_streams: !process.env.HUBOT_ZULIP_ONLY_SUBSCRIBED_STREAMS?
 
         @zulip.on 'registered', (resp) =>
             if not @connected
