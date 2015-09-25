@@ -1,6 +1,6 @@
 # Zulip adapter for Hubot
 
-Follow the [Getting Started with Hubot](https://github.com/github/hubot/blob/master/docs/README.md) page to create your Hubot.
+Follow the [Getting Started with Hubot](https://hubot.github.com/docs/) page to create your Hubot.
 
 In your Hubot's directory, run:
 
