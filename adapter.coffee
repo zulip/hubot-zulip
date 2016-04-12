@@ -92,7 +92,8 @@ decode = (s) ->
 
 room_for_message = (msg) ->
     if msg.type == 'private'
-        "pm-with:#{encode(msg.sender_email)}"
+        recipient_list = (user.email for user in msg.display_recipient)
+        "pm-with:#{encode(recipient_list.join(','))}"
     else
         "stream:#{encode(msg.display_recipient)} topic:#{encode(msg.subject)}"
 
