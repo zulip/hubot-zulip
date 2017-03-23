@@ -61,18 +61,24 @@ class Zulip extends Adapter
         @zulip.on 'message', (msg) =>
             return if msg.sender_email is @zulip.email
 
-            room = room_for_message(msg)
-            author = @robot.brain.userForId msg.sender_email,
-                name: msg.sender_full_name
-                email_address: msg.sender_email
-            author.room = room
+            author = this._author_for_message(msg)
 
             content = msg.content.replace(@mention_regex, '@$1')
             console.log(@mention_regex, content)
-            
+
             message = new TextMessage author, content, msg.id
             console.log "Received", message
             @receive(message)
+
+    _author_for_message: (msg) ->
+        author = @robot.brain.userForId msg.sender_email,
+            name: msg.sender_full_name
+            email_address: msg.sender_email
+        # Work around github/hubot#670 by setting room separately. If we pass it
+        # to userForId, it could delete the existing user from the brain.
+        author.room = room_for_message(msg)
+        author
+
 
 exports.use = (robot) ->
     new Zulip robot
