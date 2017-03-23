@@ -65,7 +65,7 @@ class Zulip extends Adapter
             author = @robot.brain.userForId msg.sender_email,
                 name: msg.sender_full_name
                 email_address: msg.sender_email
-                room: room
+            author.room = room
 
             content = msg.content.replace(@mention_regex, '@$1')
             console.log(@mention_regex, content)
