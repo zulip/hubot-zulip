@@ -14,6 +14,6 @@
   },
   "keywords": ["zulip", "hubot"],
   "repository":"https://github.com/zulip/hubot-zulip",
-  "author": "Zulip, Inc.",
+  "author": "Zulip open source project",
   "license": "MIT"
 }
