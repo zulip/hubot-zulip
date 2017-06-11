@@ -12,8 +12,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["zulip", "hubot"],
-  "repository":"https://github.com/zulip/hubot-zulip",
+  "keywords": [
+    "zulip",
+    "hubot"
+  ],
+  "repository": "https://github.com/zulip/hubot-zulip",
   "author": "Zulip open source project",
   "license": "MIT"
 }
