@@ -24,5 +24,6 @@ To run Hubot with a self-hosted version of Zulip, use:
 
 To run Hubot on Heroku, edit `Procfile` to change the `-a` option to `-a zulip`. Use the following commands to set the environment variables:
 
-	heroku config:add HUBOT_ZULIP_BOT=hubot-bot@example.com
+	heroku config:add HUBOT_ZULIP_SITE=https://example.zulipchat.com/api
 	heroku config:add HUBOT_ZULIP_API_KEY=your_key
+	heroku config:add HUBOT_ZULIP_BOT=hubot-bot@example.com
