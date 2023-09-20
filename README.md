@@ -1,5 +1,9 @@
 # Zulip adapter for Hubot
 
+**Warning: As of September 2023, the Hubot project is no longer being actively maintained.**
+
+---
+
 Follow the [Getting Started with Hubot](https://hubot.github.com/docs/) page to create your Hubot.
 
 In your Hubot's directory, run:
